@@ -1,0 +1,53 @@
+body {
+  background-image: url('img/bands-img.jpg');
+  background-color: black;
+}
+
+h1 {
+  color: gold;
+  margin-top: 100px;
+  font-size: 100px;
+  text-align: center;
+}
+
+.title {
+  font-size: 120px;
+}
+
+p {
+  background-color: black;
+  color: gold;
+  margin-top: -50px;
+  text-align: center;
+  font-size: 25px;
+}
+/*controls the title and paragraph*/
+.centerPara {
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-color: transparent;
+}
+
+span {
+  background-color: black;
+  font-size: 25px;
+}
+/*Moves the search bar and btn to the middle lines 17-22*/
+section {
+  text-align: center;
+}
+/*the button aka submit btns*/
+button {
+  height: 20px;
+  width: 25px;
+}
+/*the bottom of the page*/
+footer {
+  background-color: gold;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}

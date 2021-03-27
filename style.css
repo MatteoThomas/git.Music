@@ -1,6 +1,7 @@
 body {
-  background-image: url('img/bands-img.jpg');
+  background-image: url('img/img-band2.jpg');
   background-color: black;
+  background-size: 500px;
 }
 
 h1 {
@@ -12,6 +13,10 @@ h1 {
 
 .title {
   font-size: 120px;
+}
+
+.search {
+  height: 30px;
 }
 
 p {
@@ -41,13 +46,14 @@ section {
 }
 /*the button aka submit btns*/
 button {
-  height: 20px;
+  height: 25px;
   width: 25px;
+  margin-top: 10px;
 }
 /*the bottom of the page*/
 footer {
   background-color: gold;
-  position: fixed;
+  position: absolute;
   width: 100%;
   bottom: 0;
 }

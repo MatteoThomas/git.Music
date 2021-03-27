@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+
+header {
+    padding: 40px;
+    background-image: url(img/bands-img.jpg);
+    text-align: center;
+         
+      }
+
+      h1 {
+          color: black;
+      }

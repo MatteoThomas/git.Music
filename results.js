@@ -7,7 +7,7 @@ function getAPI() {
 
     var artist = document.getElementById("input").value;
     title.textContent = artist;
-    apiCall = `http://tastedive.com/api/similar?limit=0&q=${artist}&k=406651-RebeccaL-ITGD1FYL`;
+    apiCall = `https://tastedive.com/api/similar?limit=0&q=${artist}&k=406651-RebeccaL-ITGD1FYL`;
     // adding fetch
 
     fetch(apiCall)

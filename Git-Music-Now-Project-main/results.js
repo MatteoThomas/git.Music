@@ -5,20 +5,20 @@ var players = document.getElementById("players");
 var header = document.getElementsByClassName("header");
 function getAPI() {
 
-    // var artist = document.getElementById("input").value;
-    // $(header).html("");
-    // $(header).html(artist);
-    // // title.textContent = artist;
+    var artist = document.getElementById("input").value;
+    $(header).html("");
+    $(header).html(artist);
+    // title.textContent = artist;
     // apiCall = `http://tastedive.com/api/similar?limit=0&q=${artist}&k=406651-RebeccaL-ITGD1FYL`;
 
-    // deezer API call
-    fetch(apiCall)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+    // // deezer API call
+    // fetch(apiCall)
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         console.log(data);
+    //     })
 
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
             "method": "GET",
@@ -67,7 +67,9 @@ function discAPI() {
         var pic = data.results[0].cover_image
         console.log(data)
         var img = $('<img class="box" src=' + pic + '>', {});
-
+        function removeImage() {
+    $("#img").html("");
+}
         // adds image from discogs to the page
         $('#img').append(img);
     })

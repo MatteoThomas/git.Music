@@ -8,9 +8,7 @@ function getAPI() {
     var artist = document.getElementById("input").value;
     $(header).html("");
     $(header).html(artist);
-    // title.textContent = artist;
-    
-
+ 
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
             "method": "GET",
             "headers": {
@@ -43,26 +41,39 @@ function discAPI() {
     fetch(total).then(function (response) {
         return response.json();
     }).then(function (data) {
-    // gets releases from array
-  
-  
-  
+    
+        // gets image from array
+
     var pic = data.results[0].cover_image
     console.log(data)
     var img = $('<img class="box" src=' + pic + '>', {});
 
 // adds image from discogs to the page
 $('#img').append(img);
-        // gets pic from array
+    
+// gets release from array
         var title = data.results[1].title
         console.log(title)
-
-
-        // adds image from discogs to the page
+       // adds release to page
         $('#releases').append(title);
 
-  
+        let keys = Object.keys(data).filter(k=>data[k]==="release");
+        console.log(keys)
+
+
+        var myStringArray = [data];
+        var real = myStringArray.length;
+        for (var i = 0; i < real; i++) {
+       
+
+        }
+            
     })
+}
+
+// removes pevious releases
+function removeRelease() {
+    $("#releases").html("");
 }
 
 // removes pevious searches image
@@ -81,5 +92,6 @@ $('.input').on('keypress', function (e) {
         getAPI()
         discAPI()
         removeImage()
+        removeRelease()
     }
 });

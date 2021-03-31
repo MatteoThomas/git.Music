@@ -1,59 +1,59 @@
+
+header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #9d8d8f;
+    background-color: #5a5660;
+    text-transform:capitalize;
+    text-align: center;
+    font-size: x-large;
+    align-items: center;
+    font-family: 'Archivo Black', sans-serif;
+ }
+    
 body {
-  background-image: url('img/img-band2.jpg');
-  background-color: black;
-  height: 100%;
+    background-color: #9d8d8f;
+    justify-content: center;
+    margin: 0px auto;
+    height: 100%;
+}
+.control {
+    padding-top: 10%;
+} 
+
+.input {
+width: 80%;
 }
 
-h1 {
-  color: gold;
-  margin-top: 100px;
-  font-size: 100px;
-  text-align: center;
+.column {
+    justify-content: center;
+    text-align: center;
+}
+.columns {
+    justify-content: center;
+    text-align: center;
 }
 
-.title {
-  font-size: 120px;
+.player_container {
+    justify-content: center;
+
 }
 
-.search {
-  height: 30px;
+.content {
+    display: flex;
+    justify-content: center;
+}
+.img {
+    justify-content: center;
+    padding-top: 10px;
+    width: 300px;
+    height: 300px;
 }
 
-p {
-  background-color: black;
-  color: rgb(158, 180, 212);
-  margin-top: -50px;
-  text-align: center;
-  font-size: 25px;
-}
-/*controls the title and paragraph*/
-.centerPara {
-  display: inline-block;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  background-color: transparent;
-}
-
-span {
-  background-color: black;
-  font-size: 25px;
-}
-/*Moves the search bar and btn to the middle lines 17-22*/
-section {
-  text-align: center;
-}
-/*the button aka submit btns*/
-button {
-  height: 25px;
-  width: 25px;
-  margin-top: 10px;
-}
-/*the bottom of the page*/
-footer {
-  background-color: gold;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-}
+.box {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+  }

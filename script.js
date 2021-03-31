@@ -1,29 +1,59 @@
 var searchButton = document.getElementById("search-button");
 var player = document.getElementById("player");
 var title = document.getElementById("artist");
-var players = document.getElementById("players");
+
 var header = document.getElementsByClassName("header");
+var song = document.getElementById("songs");
+var album = document.getElementById("albums");
 function getAPI() {
 
     var artist = document.getElementById("input").value;
     $(header).html("");
     $(header).html(artist);
-    // title.textContent = artist;
-    
+   
 
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-key": "69b90c75b0msh9037becee190a85p1d61ccjsn154266cd5838",
-                "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
-            }
-        })
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "69b90c75b0msh9037becee190a85p1d61ccjsn154266cd5838",
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+        }
+    })
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
+            $("#more").html("");
             console.log(data);
             console.log(data.data[0].preview);
+            console.log(data.data[0].title);
+            console.log(data.data[0].album.title);
+            song = data.data[0].title;
+            album = data.data[0].album.title;
+            $('#songs').html("");
+            $('#songs').append(song);
+            $('#albums').html("");
+            $('#albums').html(album);
+            for (var i = 1; i < data.data.length; i++) {
+               
+                var songsEl = document.createElement("li");
+            songsEl.innerHTML = `<a class="song_link" value=${data.data[i].preview}>${data.data[i].title} from ${data.data[i].album.title}</a>`;
+            
+            $("#more").append(songsEl);
+            }
+            $(".song_link").click(function () {
+                var url = $(this).attr("value");
+                var details = $(this).text();
+                var detail_array = details.split(" from ");
+                $("#songs").text(detail_array[0]);
+                $("#albums").text(detail_array[1]);
+                album = detail_array[1];
+                console.log(detail_array[0]);
+                console.log(url);
+                player.setAttribute("src", url);
+                console.log($(this).val());
+                
+            })
             player.setAttribute("src", `${data.data[0].preview}`);
         })
 }
@@ -43,25 +73,16 @@ function discAPI() {
     fetch(total).then(function (response) {
         return response.json();
     }).then(function (data) {
-    // gets releases from array
-  
-  
-  
-    var pic = data.results[0].cover_image
-    console.log(data)
-    var img = $('<img class="box" src=' + pic + '>', {});
 
-// adds image from discogs to the page
-$('#img').append(img);
         // gets pic from array
-        var title = data.results[1].title
-        console.log(title)
-
-
+        var pic = data.results[0].cover_image
+        console.log(data)
+        var img = $('<img class="box" src=' + pic + '>', {});
+        function removeImage() {
+            $("#img").html("");
+        }
         // adds image from discogs to the page
-        $('#releases').append(title);
-
-  
+        $('#img').append(img);
     })
 }
 
@@ -69,6 +90,11 @@ $('#img').append(img);
 function removeImage() {
     $("#img").html("");
 }
+
+
+
+
+
 
 // event listeners
 searchButton.addEventListener("click", getAPI);

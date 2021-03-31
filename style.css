@@ -1,7 +1,7 @@
 body {
   background-image: url('img/img-band2.jpg');
   background-color: black;
-  background-size: 500px;
+  height: 100%;
 }
 
 h1 {
@@ -21,7 +21,7 @@ h1 {
 
 p {
   background-color: black;
-  color: gold;
+  color: rgb(158, 180, 212);
   margin-top: -50px;
   text-align: center;
   font-size: 25px;

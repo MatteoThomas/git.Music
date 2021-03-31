@@ -1,3 +1,11 @@
+*{
+	margin: 0;
+	padding: 0;
+	outline: none;
+	box-sizing: border-box;
+	font-family: 'Comfortaa', cursive;
+}
+
 body {
   background-image: url('img/img-band2.jpg');
   background-color: black;
@@ -6,9 +14,19 @@ body {
 
 h1 {
   color: gold;
-  margin-top: 100px;
+  margin-top: 20px;
   font-size: 100px;
   text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px gold, 0 0 20px gold;
+  }
+  to {
+    text-shadow: 0 0 20px gold, 0 0 30px gold;
+  }
 }
 
 .title {
@@ -23,7 +41,7 @@ h1 {
 p {
   background-color: black;
   color: gold;
-  margin-top: -50px;
+  margin-top: 30px;
   text-align: center;
   font-size: 25px;
 }
@@ -40,21 +58,58 @@ p {
 span {
   background-color: black;
   font-size: 25px;
+  animation: glow 1s ease-in-out infinite alternate;
 }
-/*Moves the search bar and btn to the middle lines 17-22*/
-section {
-  text-align: center;
-}
-/*the button aka submit btns*/
-button {
-  height: 50px;
-  width: 50px;
-  margin-top: 10px;
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px gold, 0 0 20px gold;
+  }
+  to {
+    text-shadow: 0 0 10px gold, 0 0 30px gold;
+  }
 }
 /*the bottom of the page*/
 footer {
   background-color: gold;
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+.container {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0,0.6);
+    max-width: 550px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.container .search {
+    width: 85%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.searchbtn {
+    background: #ffec00;
+    width: 10%;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.searchbtn .fas{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
 }

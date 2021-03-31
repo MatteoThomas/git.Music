@@ -10,7 +10,7 @@ $('#search').on('keypress', function (e) {
 });
 
 // Search event listener - click
-$("#btn1").click(function () {
+$("#searchbtn").click(function () {
     makeCall()
     removeImage()
     console.log('search button clicked')

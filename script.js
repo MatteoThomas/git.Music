@@ -6,22 +6,16 @@ var header = document.getElementsByClassName("header");
 var song = document.getElementById("songs");
 var album = document.getElementById("albums");
 var more = document.getElementById('more');
-
     $("#song_album").hide();
     $("#more").hide();
-
-
 function getAPI() {
-
 $("#more").show();
 $("#song_album").show();
    
-
     var artist = document.getElementById("input").value;
     $(artistName).html("");
     $(artistName).html(artist);
    
-
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
         "method": "GET",
         "headers": {
@@ -68,7 +62,6 @@ $("#song_album").show();
             player.setAttribute("src", `${data.data[0].preview}`);
         })
 }
-
 // discogs API call
 function discAPI() {
     let url = "https://api.discogs.com/database/search?q="
@@ -79,12 +72,10 @@ function discAPI() {
     $('#artist-name').html("");
     $('#artist-name').append(artist);
     $('.input').val("");
-
     // fetched data from api
     fetch(total).then(function (response) {
         return response.json();
     }).then(function (data) {
-
         // gets pic from array
         var pic = data.results[0].cover_image
         console.log(data)
@@ -94,16 +85,13 @@ function discAPI() {
         $('#img').append(img);
     })
 }
-
 // removes pevious searches image
 function removeImage() {
     $("#img").html("");
 }
-
 function showMore() {
     $("#more").show();
 }
-
 // event listeners
 searchButton.addEventListener("click", getAPI);
 searchButton.addEventListener("click", discAPI);

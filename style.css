@@ -1,8 +1,5 @@
 :root {
- rl_project
-    background-color: #9d8d8f;
-
-
+  background-color: #9d8d8f;
 }
 
 header {
@@ -22,6 +19,7 @@ body {
   margin: 0px auto;
   height: 100%;
 }
+
 .artist {
   font-family: "Chango", cursive;
   font-size: xx-large;
@@ -29,6 +27,7 @@ body {
   text-transform: capitalize;
   padding-top: 8px;
 }
+
 .control {
   padding-top: 8%;
 }
@@ -37,6 +36,7 @@ body {
   width: 80%;
   background-color: azure;
 }
+
 .column {
   justify-content: center;
   text-align: center;
@@ -44,16 +44,20 @@ body {
   color: azure;
   min-height: auto;
 }
+
 .columns {
   justify-content: center;
   text-align: center;
 }
+
 .player {
   background-color: azure;
 }
+
 .player_container {
   justify-content: center;
 }
+
 .content {
   display: flex;
   flex-direction: column;
@@ -61,18 +65,21 @@ body {
   justify-content: center;
   height: auto;
 }
+
 .image {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 .img {
   justify-content: center;
   padding-top: 10px;
   width: 200px;
   height: 200px;
 }
+
 .box {
   width: 200px;
   height: 200px;

@@ -1,8 +1,5 @@
 :root {
- rl_project
-    background-color: #9d8d8f;
-
-
+  background-color: #9d8d8f;
 }
 
 header {
@@ -47,13 +44,16 @@ body {
   color: azure;
   min-height: auto;
 }
+
 .columns {
   justify-content: center;
   text-align: center;
 }
+
 .player {
   background-color: azure;
 }
+
 .player_container {
   justify-content: center;
 }

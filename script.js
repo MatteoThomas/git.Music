@@ -34,7 +34,7 @@ function getAPI() {
             $('#songs').append(song);
             $('#albums').html("");
             $('#albums').html(album);
-            for (var i = 1; i < data.data.length; i++) {
+            for (var i = 1; i < data.data.length; i+=5) {
                
                 var songsEl = document.createElement("li");
             songsEl.innerHTML = `<a class="song_link" value=${data.data[i].preview}>${data.data[i].title} from ${data.data[i].album.title}</a>`;

@@ -1,15 +1,25 @@
 var searchButton = document.getElementById("search-button");
 var player = document.getElementById("player");
 var title = document.getElementById("artist");
-
+var artistName = document.getElementsByClassName("artist");
 var header = document.getElementsByClassName("header");
 var song = document.getElementById("songs");
 var album = document.getElementById("albums");
+var more = document.getElementById('more');
+
+    $("#song_album").hide();
+    $("#more").hide();
+
+
 function getAPI() {
 
+$("#more").show();
+$("#song_album").show();
+   
+
     var artist = document.getElementById("input").value;
-    $(header).html("");
-    $(header).html(artist);
+    $(artistName).html("");
+    $(artistName).html(artist);
    
 
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
@@ -41,6 +51,7 @@ function getAPI() {
             
             $("#more").append(songsEl);
             }
+            
             $(".song_link").click(function () {
                 var url = $(this).attr("value");
                 var details = $(this).text();
@@ -78,9 +89,7 @@ function discAPI() {
         var pic = data.results[0].cover_image
         console.log(data)
         var img = $('<img class="box" src=' + pic + '>', {});
-        function removeImage() {
-            $("#img").html("");
-        }
+     
         // adds image from discogs to the page
         $('#img').append(img);
     })
@@ -91,15 +100,14 @@ function removeImage() {
     $("#img").html("");
 }
 
-
-
-
-
+function showMore() {
+    $("#more").show();
+}
 
 // event listeners
 searchButton.addEventListener("click", getAPI);
 searchButton.addEventListener("click", discAPI);
-
+more.addEventListener("click", showMore);
 // event listener allows enter key to trigger APIs, clear search field, clear image
 $('.input').on('keypress', function (e) {
     if (e.which == 13) {

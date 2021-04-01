@@ -1,55 +1,85 @@
-console.log("I am connected to HTML!");
+var searchButton = document.getElementById("search-button");
+var player = document.getElementById("player");
+var title = document.getElementById("artist");
+var players = document.getElementById("players");
+var header = document.getElementsByClassName("header");
+function getAPI() {
 
-// Search event listener - enter
-$('#search').on('keypress', function (e) {
-    if (e.which == 13) {
-    console.log("enter key pressed")
-    makeCall()
-    removeImage()
-    }
-});
+    var artist = document.getElementById("input").value;
+    $(header).html("");
+    $(header).html(artist);
+    // title.textContent = artist;
+    
 
-// Search event listener - click
-$("#btn1").click(function () {
-    makeCall()
-    removeImage()
-    console.log('search button clicked')
-});
+    fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "69b90c75b0msh9037becee190a85p1d61ccjsn154266cd5838",
+                "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+            }
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            console.log(data.data[0].preview);
+            player.setAttribute("src", `${data.data[0].preview}`);
+        })
+}
 
-// Clears search after click / removes previous image 
-function clearSearch() {
-    $('#search').val("");
-  }
-  function removeImage() {
-    $(".img").html("");
-  }
-
-  // api request
-function makeCall() {
+// discogs API call
+function discAPI() {
     let url = "https://api.discogs.com/database/search?q="
-    let artist = $('#search').val();
+    let artist = $('#input').val();
     let apiKey = "&key=DspsPlrDDgNBHyZQSnHV";
     let secret = "&secret=JtsCNMKigmGKAhrugoBTVSyTLESOZUZT"
-    let pageNum = $('#page').val();
-    let page = '&per_page=' + pageNum
-    let total = url + artist + apiKey + secret + page;
-    $(".artist-name").html("");
-    $('.artist-name').append(artist);
-    $('#search').val("");
-  
+    let total = url + artist + apiKey + secret;
+    $('#artist-name').html("");
+    $('#artist-name').append(artist);
+    $('.input').val("");
+
     // fetched data from api
     fetch(total).then(function (response) {
-      return response.json();
+        return response.json();
     }).then(function (data) {
+    // gets releases from array
   
+  
+  
+    var pic = data.results[0].cover_image
+    console.log(data)
+    var img = $('<img class="box" src=' + pic + '>', {});
+
+// adds image from discogs to the page
+$('#img').append(img);
         // gets pic from array
-      var pic = data.results[0].cover_image
-      console.log(data)
-      var img = $('<img class="box" src=' + pic + '>', {
-      });
-    
-      // adds image from discogs to the page
-      $('.img').append(img);
-    })
-  }
+        var title = data.results[1].title
+        console.log(title)
+
+
+        // adds image from discogs to the page
+        $('#releases').append(title);
+
   
+    })
+}
+
+// removes pevious searches image
+function removeImage() {
+    $("#img").html("");
+}
+
+// event listeners
+searchButton.addEventListener("click", getAPI);
+searchButton.addEventListener("click", discAPI);
+
+// event listener allows enter key to trigger APIs, clear search field, clear image
+$('.input').on('keypress', function (e) {
+    if (e.which == 13) {
+        console.log("enter key pressed")
+        getAPI()
+        discAPI()
+        removeImage()
+    }
+});

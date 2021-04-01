@@ -4,37 +4,52 @@ header {
     padding-bottom: 20px;
     color: #9d8d8f;
     background-color: #5a5660;
-    text-transform:capitalize;
+    font-size: xx-large;
     text-align: center;
-    font-size: x-large;
-    align-items: center;
-    font-family: 'Archivo Black', sans-serif;
+     align-items: center;
+    font-family: 'Chango', cursive;
  }
     
 body {
-    font-family: 'Archivo Black', sans-serif;
+  
     background-color: #9d8d8f;
     justify-content: center;
     margin: 0px auto;
     height: 100%;
 }
+
+.artist {
+    font-family: 'Chango', cursive;
+    font-size: xx-large;
+    color: azure;
+    text-transform: capitalize;
+    padding-top: 8px;
+}
+
 .control {
-    padding-top: 10%;
+padding-top: 8%;
+   
 } 
 
 .input {
 width: 80%;
+background-color: azure;
 }
 
 .column {
     justify-content: center;
     text-align: center;
+    font-family: 'Lexend', sans-serif;
+    color: azure;
+    min-height: auto;
 }
 .columns {
     justify-content: center;
     text-align: center;
 }
-
+.player {
+    background-color: azure;
+}
 .player_container {
     justify-content: center;
 
@@ -45,24 +60,27 @@ width: 80%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: auto;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .img {
     justify-content: center;
     padding-top: 10px;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
 }
 
 .box {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
     object-fit: cover;
     mix-blend-mode: multiply;
-  }
-
-  .releases {
-      display: flex;
-      justify-content: center;
   }

@@ -6,12 +6,12 @@ var header = document.getElementsByClassName("header");
 var song = document.getElementById("songs");
 var album = document.getElementById("albums");
 var more = document.getElementById('more');
- $("#song_album").hide();
- $("#more").hide();
- $("#player_container").hide();
+$("#song_album").hide();
+$("#more").hide();
+$("#player_container").hide();
 
- function getAPI() {
-    
+function getAPI() {
+
     $("#more").show();
     $("#song_album").show();
     $("#player_container").show();
@@ -78,7 +78,7 @@ function discAPI() {
     let apiKey = "&key=DspsPlrDDgNBHyZQSnHV";
     let secret = "&secret=JtsCNMKigmGKAhrugoBTVSyTLESOZUZT"
     let total = url + artist + apiKey + secret;
-    $('#artist-name').html("");
+  //  $('#artist-name').html("");
     $('#artist-name').append(artist);
     $('.input').val("");
     // fetched data from api
@@ -91,11 +91,26 @@ function discAPI() {
         var img = $('<img class="box" src=' + pic + '>', {});
 
         // adds image from discogs to the page
+        
         $('#img').append(img);
+
+    
+        localStorage.setItem('artStore', artist);
+        // Retrieve
+
+        var item = localStorage.getItem('artStore');
+        console.log(item)
     })
 }
+setStore()
+function setStore() {
+       var item = localStorage.getItem('artStore');
+       console.log(item)
 
+    $('#list-group').append(item);
 
+        
+}
 
 // removes pevious searches image
 function removeImage() {
@@ -108,7 +123,7 @@ function showMore() {
 // event listeners
 searchButton.addEventListener("click", getAPI);
 searchButton.addEventListener("click", discAPI);
-more.addEventListener("click", showMore);
+
 // event listener allows enter key to trigger APIs, clear search field, clear image
 $('.input').on('keypress', function (e) {
     if (e.which == 13) {

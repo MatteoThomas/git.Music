@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 ​
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,15 +17,12 @@
 ​<header class="header"><span><b>git.</b>MUSIC</span></header>
 
 <body>
-    
-
-    
-    ​
+​
     <row class="results area">
         <div class="columns">
-            <!--          <div class="column is-one-quarter is-mobile"></div>  -->
+   
             <div class="field">
-                <!--                   <label class="label">Search Again!</label>   -->
+          
                 <div class="control">
                     <row class="form">
                         <input class="input" id="input" type="text" placeholder="artist">
@@ -35,36 +31,37 @@
 
                 </div>
             </div>
-            ​
+            ​    
         </div>
         </div>
+        <div id="list-group"><span>Last search: </span></div>
         <div id="page-info">Search for your favorite musician to find audio samples and similar artists!</div>
 
         <div class="artist" id="artist"></div>
         <div class="image">
             <div id='img'></div>
+        </div>
+        <div class="column">
+
+
+            <div id="player_container">
+                <!-- <ul id="players"></ul> -->
+                <audio id="player" controls></audio>
+                <div id="song_album">Now previewing:<br> <span id="songs" class="songs"></span></br> from the album:
+                    <span id="albums" class="albums"></span></div>
             </div>
-            <div class="column">
-
-
-                <div id="player_container">
-                    <!-- <ul id="players"></ul> -->
-                    <audio id="player" controls></audio>
-                    <div id="song_album">Now previewing:<br> <span id="songs" class="songs"></span></br> from the album:
-                        <span id="albums" class="albums"></span></div>
-                </div>
-                ​
-            
+            ​
     </row>
     <div class='content'>
 
         <div id='releases'></div>
         <ul class="more" id="more">Show more</ul>
+
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
 
 </body>
 ​
-
 </html>

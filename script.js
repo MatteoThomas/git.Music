@@ -6,14 +6,19 @@ var header = document.getElementsByClassName("header");
 var song = document.getElementById("songs");
 var album = document.getElementById("albums");
 var more = document.getElementById('more');
-$("#song_album").hide();
-$("#more").hide();
+ $("#song_album").hide();
+ $("#more").hide();
+ $("#player_container").hide();
 
-function getAPI() {
+ function getAPI() {
+    
     $("#more").show();
     $("#song_album").show();
+    $("#player_container").show();
+    $("#page-info").hide();
 
     var artist = document.getElementById("input").value;
+
     $(artistName).html("");
     $(artistName).html(artist);
 
@@ -89,6 +94,9 @@ function discAPI() {
         $('#img').append(img);
     })
 }
+
+
+
 // removes pevious searches image
 function removeImage() {
     $("#img").html("");

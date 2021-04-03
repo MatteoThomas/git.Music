@@ -6,21 +6,23 @@ var header = document.getElementsByClassName("header");
 var song = document.getElementById("songs");
 var album = document.getElementById("albums");
 var more = document.getElementById('more');
-
-    $("#song_album").hide();
-    $("#more").hide();
+$("#song_album").hide();
+$("#more").hide();
+$("#player_container").hide();
 
 
 function getAPI() {
 
-$("#more").show();
-$("#song_album").show();
-   
+    $("#more").show();
+    $("#song_album").show();
+    $("#player_container").show();
+    $("#page-info").hide();
 
     var artist = document.getElementById("input").value;
+
     $(artistName).html("");
     $(artistName).html(artist);
-   
+
 
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
         "method": "GET",
@@ -31,6 +33,7 @@ $("#song_album").show();
     })
         .then(function (response) {
             return response.json();
+            console.log(response);
         })
         .then(function (data) {
             $("#more").html("");
@@ -45,16 +48,16 @@ $("#song_album").show();
             $('#albums').html("");
             $('#albums').html(album);
 
+
             for (var i = 1; i <= 8; i++) {
 
-
-               
                 var songsEl = document.createElement("li");
             songsEl.innerHTML = `<a class="song_link" value=${data.data[i].preview}>${data.data[i].title} from ${data.data[i].album.title}</a>`;
             
             $("#more").append(songsEl);
             }
-            
+
+
             $(".song_link").click(function () {
                 var url = $(this).attr("value");
                 var details = $(this).text();
@@ -69,6 +72,9 @@ $("#song_album").show();
                 
             })
             player.setAttribute("src", `${data.data[0].preview}`);
+            
+
+
         })
 }
 
@@ -79,7 +85,7 @@ function discAPI() {
     let apiKey = "&key=DspsPlrDDgNBHyZQSnHV";
     let secret = "&secret=JtsCNMKigmGKAhrugoBTVSyTLESOZUZT"
     let total = url + artist + apiKey + secret;
-    $('#artist-name').html("");
+    //  $('#artist-name').html("");
     $('#artist-name').append(artist);
     $('.input').val("");
 
@@ -92,10 +98,33 @@ function discAPI() {
         var pic = data.results[0].cover_image
         console.log(data)
         var img = $('<img class="box" src=' + pic + '>', {});
-     
+ 
         // adds image from discogs to the page
+
         $('#img').append(img);
+        https: //www.discogs.com/search/?q=korn&type=all
+
+
+            localStorage.setItem('artStore', artist);
+        // Retrieve
+
+        var item = localStorage.getItem('artStore');
+        console.log(item)
     })
+    $("#list-group").show();
+}
+
+
+
+
+setStore()
+
+function setStore() {
+    var item = localStorage.getItem('artStore');
+    console.log(item)
+
+    $('#list-group').append(item);
+
 }
 
 // removes pevious searches image
@@ -110,7 +139,7 @@ function showMore() {
 // event listeners
 searchButton.addEventListener("click", getAPI);
 searchButton.addEventListener("click", discAPI);
-more.addEventListener("click", showMore);
+
 // event listener allows enter key to trigger APIs, clear search field, clear image
 $('.input').on('keypress', function (e) {
     if (e.which == 13) {

@@ -10,6 +10,7 @@ $("#song_album").hide();
 $("#more").hide();
 $("#player_container").hide();
 
+
 function getAPI() {
 
     $("#more").show();
@@ -22,6 +23,7 @@ function getAPI() {
     $(artistName).html("");
     $(artistName).html(artist);
 
+
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
             "method": "GET",
             "headers": {
@@ -31,6 +33,7 @@ function getAPI() {
         })
         .then(function (response) {
             return response.json();
+            console.log(response);
         })
         .then(function (data) {
             $("#more").html("");
@@ -45,15 +48,15 @@ function getAPI() {
             $('#albums').html("");
             $('#albums').html(album);
 
+
             for (var i = 1; i <= 8; i++) {
-
-
 
                 var songsEl = document.createElement("li");
                 songsEl.innerHTML = `<a class="song_link" value=${data.data[i].preview}>${data.data[i].title} from ${data.data[i].album.title}</a>`;
 
                 $("#more").append(songsEl);
             }
+
 
             $(".song_link").click(function () {
                 var url = $(this).attr("value");
@@ -69,6 +72,10 @@ function getAPI() {
 
             })
             player.setAttribute("src", `${data.data[0].preview}`);
+
+
+
+
         })
 }
 // discogs API call
@@ -78,7 +85,7 @@ function discAPI() {
     let apiKey = "&key=DspsPlrDDgNBHyZQSnHV";
     let secret = "&secret=JtsCNMKigmGKAhrugoBTVSyTLESOZUZT"
     let total = url + artist + apiKey + secret;
-  //  $('#artist-name').html("");
+    //  $('#artist-name').html("");
     $('#artist-name').append(artist);
     $('.input').val("");
     // fetched data from api
@@ -91,25 +98,31 @@ function discAPI() {
         var img = $('<img class="box" src=' + pic + '>', {});
 
         // adds image from discogs to the page
-        
-        $('#img').append(img);
 
-    
-        localStorage.setItem('artStore', artist);
+        $('#img').append(img);
+        https: //www.discogs.com/search/?q=korn&type=all
+
+
+            localStorage.setItem('artStore', artist);
         // Retrieve
 
         var item = localStorage.getItem('artStore');
         console.log(item)
     })
+    $("#list-group").show();
 }
+
+
+
+
 setStore()
+
 function setStore() {
-       var item = localStorage.getItem('artStore');
-       console.log(item)
+    var item = localStorage.getItem('artStore');
+    console.log(item)
 
     $('#list-group').append(item);
 
-        
 }
 
 // removes pevious searches image

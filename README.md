@@ -36,19 +36,21 @@ Pull requests are encouraged. Please make sure to update as appropriate
 
 # Steps
 Steps taken by user
-	• When the user inputs artist name they are given an image of the artist/band. 
-	• The user is given music sample of the artist that they can listen to with built in player. 
-	• The user is also presented with a list of songs from this artist.
-	• When the user clicks on a similar artists…..
-    • When the user selects another artist the current image and information is removed and the user is presented with image and selection for new artist. 
+* When the user inputs artist name they are given an image of the artist/band. 
+* The user is given music sample of the artist that they can listen to with built in player. 
+* The user is also presented with a list of songs from this artist.
+* When the user searches another artist the current image and information is removed and the user is presented with the image and selection for new artist. 
+* When the user refreshes the page the previous search is shown
 	
   
-### Weather Dashboard
+### Git Music
 ![Changed HTML](./img/screenshotgitmusic.png)
 
-### City Serach
-![Changed HTML](./img/screenshot2.png)
+### Search
+![Changed HTML](./img/screenshotsearch.png)
 
+### List
+![Changed HTML](./img/screenshotlist.png)
 
 
 

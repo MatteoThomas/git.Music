@@ -25,15 +25,15 @@ function getAPI() {
 
 
     fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-key": "69b90c75b0msh9037becee190a85p1d61ccjsn154266cd5838",
-                "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
-            }
-        })
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "69b90c75b0msh9037becee190a85p1d61ccjsn154266cd5838",
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+        }
+    })
         .then(function (response) {
             return response.json();
-            console.log(response);
+          
         })
         .then(function (data) {
             $("#more").html("");
@@ -52,9 +52,9 @@ function getAPI() {
             for (var i = 1; i <= 8; i++) {
 
                 var songsEl = document.createElement("li");
-                songsEl.innerHTML = `<a class="song_link" value=${data.data[i].preview}>${data.data[i].title} from ${data.data[i].album.title}</a>`;
-
-                $("#more").append(songsEl);
+            songsEl.innerHTML = `<a class="song_link" value=${data.data[i].preview}>${data.data[i].title} from ${data.data[i].album.title}</a>`;
+            
+            $("#more").append(songsEl);
             }
 
 
@@ -69,15 +69,15 @@ function getAPI() {
                 console.log(url);
                 player.setAttribute("src", url);
                 console.log($(this).val());
-
+                
             })
             player.setAttribute("src", `${data.data[0].preview}`);
-
-
+            
 
 
         })
 }
+
 // discogs API call
 function discAPI() {
     let url = "https://api.discogs.com/database/search?q="
@@ -88,15 +88,17 @@ function discAPI() {
     //  $('#artist-name').html("");
     $('#artist-name').append(artist);
     $('.input').val("");
+
     // fetched data from api
     fetch(total).then(function (response) {
         return response.json();
     }).then(function (data) {
+
         // gets pic from array
         var pic = data.results[0].cover_image
         console.log(data)
         var img = $('<img class="box" src=' + pic + '>', {});
-
+ 
         // adds image from discogs to the page
 
         $('#img').append(img);
@@ -133,6 +135,7 @@ function removeImage() {
 function showMore() {
     $("#more").show();
 }
+
 // event listeners
 searchButton.addEventListener("click", getAPI);
 searchButton.addEventListener("click", discAPI);

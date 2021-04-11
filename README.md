@@ -6,6 +6,8 @@ Project 1 bootcamp
 
 [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
 
+[![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
+
 
 ## Table of Contents
 1. [Title](#title)
@@ -24,15 +26,20 @@ Git Music Now!
 The purpose of this app is to create a music application that allows users to search by artist and be able to listen to sample music from the artist’s album as well as be provided with a list of songs by the artist. 
 
 ## Technologies 
-The site uses HTML, CSS code, Javascript
+The site uses HTML, CSS and Javascript
 
 ## Installation
 To access the website go to https://rlacer.github.io/Git-Music-Now-Project/
-To clone https://github.com/RLacer/Git-Music-Now-Project
+
 
 
 # Collaboration 
-Pull requests are encouraged. Please make sure to update as appropriate 
+## Contributors 
+* @MelElson 
+* @RLacer
+* @MatteoThomas
+* @CoderLeE920
+
 
 # Steps
 Steps taken by user

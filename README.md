@@ -20,7 +20,7 @@ Project 1 bootcamp
 
 
 ## Title
-Git Music Now!
+git.MUSIC
 
 ## General Info
 The purpose of this app is to create a music application that allows users to search by artist and be able to listen to sample music from the artist’s album as well as be provided with a list of songs by the artist. 
@@ -29,7 +29,7 @@ The purpose of this app is to create a music application that allows users to se
 The site uses HTML, CSS and Javascript
 
 ## Installation
-To access the website go to https://rlacer.github.io/Git-Music-Now-Project/
+To access the website go to https://matteothomas.github.io/git.Music/
 
 
 

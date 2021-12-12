@@ -13,13 +13,15 @@
 
 -[Technologies](#technologies)
 
--[Installation](#installation)
+## Title
+git.MUSIC
 
 -[Contributors](#collaboration)
 
 -[Steps](#steps)
 
-## Description
+## Installation
+To access the website go to https://matteothomas.github.io/git.Music/
 
 The purpose of this app is to create a music application that allows users to search by artist and be able to listen to sample music from the artist’s album as well as be provided with a list of songs by the artist.
 

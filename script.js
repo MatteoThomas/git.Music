@@ -1,5 +1,5 @@
-var requirejs = require("requirejs");
-require("dotenv").config();
+// var requirejs = require("requirejs");
+// requirejs("dotenv").config();
 
 var searchButton = document.getElementById("search-button");
 var player = document.getElementById("player");
@@ -74,8 +74,8 @@ function getAPI() {
 function discAPI() {
   let url = "https://api.discogs.com/database/search?q=";
   let artist = $("#input").val();
-  let apiKey = (myAPIKey = process.env.DISCOGS_API_KEY);
-  let secret = (myAPISecret = process.env.DISCOGS_SECRET);
+  let apiKey = "&key=DspsPlrDDgNBHyZQSnHV";
+  let secret = "&secret=JtsCNMKigmGKAhrugoBTVSyTLESOZUZT";
   let total = url + artist + apiKey + secret;
   //  $('#artist-name').html("");
   $("#artist-name").append(artist);

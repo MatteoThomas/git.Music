@@ -1,17 +1,17 @@
 :root {
-  --bg: #34373f;
-  --blue: #66a0a0;
-  --tan: #ccc0a5;
-  --white: rgb(230, 227, 227);
-  --pink: #eed0c2;
+  --bg: #303242;
+  --blue: #b6b6b6;
+  --tan: #cec7b7;
+  --white: rgb(255, 255, 255);
+  --pink: #b8abab;
 }
 
 .light-mode {
-  --bg: #b9b8b1;
-  --blue: #71a7a7;
+  --bg: #dcdbdf;
+  --blue: #8292af;
   --tan: #f5e0b8;
-  --white: rgb(59, 56, 56);
-  --pink: #978e82;
+  --white: rgb(255, 255, 255);
+  --pink: #bacbdb;
 }
 
 a {
@@ -26,27 +26,25 @@ a {
   text-transform: capitalize;
 }
 
-#circle {
-  stroke: var(--tan);
-  stroke-width: 1rem;
-}
 header {
   color: var(--blue);
   background-color: var(--bg);
   font-size: 75px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   width: 100vw;
+  margin: 0rem 0rem 3rem 3rem;
 }
 
 #toggle {
   font-family: "Quicksand", sans-serif;
-  color: var(--pink);
+  color: var(--blue);
   margin: 1rem;
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
 }
+
 span {
   font-weight: 200;
 }
@@ -62,7 +60,6 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Quicksand", sans-serif;
-  height: 100vh;
 }
 
 #page-info {
@@ -77,8 +74,8 @@ body {
   color: var(--pink);
   padding-left: 20px;
   margin-left: 13px;
-  width: 90%;
-  max-width: 336px;
+  /* width: 90%; */
+  height: 100%;
   line-height: normal;
 }
 
@@ -120,42 +117,24 @@ body {
     background-position: 0% 51%;
   }
 }
+
 .input {
-  /* background: linear-gradient(
+  background: linear-gradient(
     266deg,
-    #da8c7c,
-    #6265b3,
-    #a79d54,
-    #b37b9d,
-    #709763
-  ); */
+    #e48977,
+    #6568d4,
+    #b5db4d,
+    #ac4482,
+    #53af35
+  );
   background-size: 1000% 1000%;
-
-  -webkit-animation: AnimationName 1s ease infinite;
-  animation: AnimationName 1s ease infinite;
-
+  -webkit-animation: AnimationName 11s ease infinite;
+  animation: AnimationName 11s ease infinite;
   outline: none;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: groove;
+  border-style: hidden;
   border-radius: 10px;
   width: 80%;
-  background-color: var(--white);
-  color: var(--bg);
-}
-
-.column {
-  justify-content: center;
-  text-align: center;
-  color: var(--blue);
-}
-
-.columns {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
+  color: var(--white);
 }
 
 .player_container {

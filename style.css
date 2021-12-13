@@ -1,53 +1,68 @@
 :root {
-  display: flex;
-  justify-content: center;
-  background-color: #101357;
-  margin: 20px;
-  font-family: 'Quicksand', sans-serif;
-  align-items: center;
-  --dark: #101357;
-  --blue: #00a0a0;
-  --tan: #ffd781;
-  --white: azure;
-  --pink: #fea49f;
+  --bg: #34373f;
+  --blue: #66a0a0;
+  --tan: #ccc0a5;
+  --white: rgb(230, 227, 227);
+  --pink: #eed0c2;
+}
+
+.light-mode {
+  --bg: #b9b8b1;
+  --blue: #71a7a7;
+  --tan: #f5e0b8;
+  --white: rgb(59, 56, 56);
+  --pink: #978e82;
 }
 
 a {
-  color: var(--dark);
+  color: var(--tan);
 }
 
 #list-group {
   font-size: 25px;
   text-align: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   color: var(--blue);
   text-transform: capitalize;
 }
 
-
+#circle {
+  stroke: var(--tan);
+  stroke-width: 1rem;
+}
 header {
   color: var(--blue);
-  background-color: var(--dark);
+  background-color: var(--bg);
   font-size: 75px;
-  text-align: center;
-  margin-top: 0%;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 }
 
+#toggle {
+  font-family: "Quicksand", sans-serif;
+  color: var(--pink);
+  margin: 1rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
 span {
-
-  font-family: 'Quicksand', sans-serif;
   font-weight: 200;
-  width: 100%;
 }
 
 span b {
-  font-family: 'Quicksand', sans-serif;
   font-weight: 700;
 }
 
 body {
-  background-color: var(--dark);
-
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  height: 100vh;
 }
 
 #page-info {
@@ -58,7 +73,7 @@ body {
   border-width: 3px;
   border-color: var(--pink);
   font-weight: 500;
-  Font-Size: 25px;
+  font-size: 25px;
   color: var(--pink);
   padding-left: 20px;
   margin-left: 13px;
@@ -71,7 +86,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
   font-size: 55px;
   color: var(--white);
@@ -83,7 +98,42 @@ body {
   padding: 0%;
 }
 
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
 .input {
+  /* background: linear-gradient(
+    266deg,
+    #da8c7c,
+    #6265b3,
+    #a79d54,
+    #b37b9d,
+    #709763
+  ); */
+  background-size: 1000% 1000%;
+
+  -webkit-animation: AnimationName 1s ease infinite;
+  animation: AnimationName 1s ease infinite;
+
   outline: none;
   border-top-style: hidden;
   border-right-style: hidden;
@@ -92,7 +142,7 @@ body {
   border-radius: 10px;
   width: 80%;
   background-color: var(--white);
-  color: var(--dark);
+  color: var(--bg);
 }
 
 .column {
@@ -106,7 +156,6 @@ body {
   flex-direction: column;
   text-align: center;
   justify-content: center;
-
 }
 
 .player_container {
@@ -131,20 +180,18 @@ ul.more {
 }
 
 #songs {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
   font-size: 20px;
   color: var(--white);
 }
 
 #albums {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
   font-size: 15px;
   color: var(--white);
 }
-
-
 
 .image {
   display: flex;
@@ -160,7 +207,6 @@ ul.more {
   object-fit: cover;
   mix-blend-mode: multiply;
   border-radius: 10px;
-
 }
 
 .img {

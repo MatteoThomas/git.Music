@@ -13,6 +13,22 @@ $("#song_album").hide();
 $("#more").hide();
 $("#player_container").hide();
 
+const toggle = document.querySelector("#toggle");
+toggle.addEventListener("click", modeSwitch);
+
+let isLight = true;
+
+function modeSwitch() {
+  isLight = !isLight;
+  let root = document.body;
+
+  isLight
+    ? (toggle.innerText = "Light Mode")
+    : (toggle.innerText = "Dark Mode");
+
+  root.classList.toggle("light-mode");
+}
+
 function getAPI() {
   $("#more").show();
   $("#song_album").show();

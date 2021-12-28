@@ -1,9 +1,9 @@
 
 ![Homepage screenshot](/gitmusic.png)
 # git.MUSIC
-```
+
 git.MUSIC is an app that allows users to search for a musician or band and find a picture, and audio samples from them. This simple app is a way to quickly see and hear a group or solo artist you might have heard about but don't need their entire back story or entire song catalog. A snazzy photo and a few of their most popular songs is enough for you to decide if the artist in question is worth hearing more of.
-```
+
 ## Link
  [git.MUSIC](https://matteothomas.github.io/git.Music/)
 

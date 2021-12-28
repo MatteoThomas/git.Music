@@ -1,7 +1,7 @@
 {
   "name": "gitmusic",
   "version": "1.0.0",
-  "description": "gitMUSIC app",
+  "description": "git.MUSIC app",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

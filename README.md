@@ -16,8 +16,7 @@ git.MUSIC is an app that allows users to search for a musician or band and find 
 - JQuery
 - Discogs API for the image.
 - Deezer API for the song samples.
-  
-# Usage
+
 # Future Development 
 - Hide API keys
 - Light / Dark mode - **Added 12/12/21**

@@ -18,33 +18,37 @@
 
 <body>
     <div id="toggle">
-Light Mode
+Light
     </div>
-    <header class="header"><span><b>git.</b>MUSIC</span></header>
-    <row class="results area">
-    
+    <header class="header">
+        <span><b>git.</b>MUSIC</span>
+        <div class="icon">Search</div><br/>
+    </header>
 
+        <row class="search">
             <div class="field">
-
                 <div class="control">
                     <row class="form">
-                        <input class="input" id="input" type="text" placeholder="artist">
+                        <input class="input" id="input" autofocus="autofocus" type="text" placeholder="search">
                         <button class="btn" id="search-button">Search</button>
                     </row>
-
                 </div>
+    
             </div>
-            <div id="list-group"><span>Last search: </span></div> 
-     
         </div>
 
         <div id="page-info">Search for your favorite musician to find audio samples to listen to! </div>
 
-        <div class="artist" id="artist"></div>
+        
         <div class="image">
+            <div class="arrows">
+                <div class="arrow minus" id="left"><</div>
+                <div class="arrow plus" id="right">></div>
+            </div>
             <div id='img'></div>
-            <div id='imgTwo'></div>
         </div>
+        <div class="artist" id="artist"></div>
+  
         <div class="column">
 
 

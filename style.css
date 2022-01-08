@@ -16,16 +16,19 @@
 
 html {
   background-color: var(--bg);
-  color: var(--tan);
+  /* color: var(--tan); */
 }
 
 body {
+  transition: all 0.4s ease-in-out;
   background-color: var(--bg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   font-family: "Quicksand", sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
 a {
@@ -42,22 +45,76 @@ a {
 }
 
 header {
-  color: var(--blue);
-  background-color: var(--bg);
-  font-size: 75px;
   display: flex;
   justify-content: center;
-  width: 100vw;
-  margin: 4rem 0rem 0rem 0rem;
+  color: var(--blue);
+  background-color: transparent;
+  text-align: center;
+  width: clamp(375px, 50%, 1000px);
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+header span {
+  font-size: clamp(3.5rem, 6vw, 10rem);
+  padding: 0.5rem;
+}
+
+@-webkit-keyframes iconAnimation {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+@keyframes iconAnimation {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  border-radius: 60px;
+  height: 20px;
+  width: 20px;
+  padding: 2.2rem;
+  font-size: 1rem;
+  color: var(--bg);
+  cursor: pointer;
+  background: linear-gradient(
+    266deg,
+    #e48977,
+    #6568d4,
+    #b5db4d,
+    #ac4482,
+    #53af35
+  );
+  background-size: 1000% 1000%;
+  -webkit-animation: iconAnimation 31s ease infinite;
+  animation: iconAnimation 31s ease infinite;
 }
 
 #toggle {
   font-family: "Quicksand", sans-serif;
   color: var(--blue);
-  margin: 1rem;
+  margin-right: 1rem;
   position: absolute;
   top: 0rem;
-  right: 0.5rem;
+  left: 0.5rem;
 }
 
 span {
@@ -71,20 +128,20 @@ span b {
 #page-info {
   display: flex;
   justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: normal;
+  text-align: center;
+  color: var(--blue);
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 2rem 2rem 0rem 2rem;
+
   border-style: none solid none solid;
   border-radius: 10px;
   border-width: 3px;
-  border-color: var(--pink);
-  font-weight: 500;
-  font-size: 25px;
-  text-align: center;
-  color: var(--pink);
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  height: 100%;
-  line-height: normal;
+  border-color: var(--blue);
 }
 
 .artist {
@@ -96,7 +153,7 @@ span b {
   font-size: 55px;
   color: var(--blue);
   text-transform: capitalize;
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
 }
 
 @-webkit-keyframes AnimationName {
@@ -138,8 +195,8 @@ span b {
     #53af35
   );
   background-size: 1000% 1000%;
-  -webkit-animation: AnimationName 11s ease infinite;
-  animation: AnimationName 11s ease infinite;
+  -webkit-animation: AnimationName 21s ease infinite;
+  animation: AnimationName 21s ease infinite;
   outline: none;
   border-style: hidden;
   border-radius: 10px 0px 0px 10px;
@@ -160,7 +217,6 @@ span b {
   flex-direction: column;
   justify-content: space-between;
   margin: 1rem;
-  /* display: none; */
 }
 
 #player {
@@ -204,30 +260,64 @@ ul.more {
   border-radius: 10px;
 }
 
-.image {
+.arrows {
+  position: absolute;
+  z-index: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: var(--pink);
-  border-radius: 10px;
-  width: 90%;
+  justify-content: space-between;
+  width: 100%;
   margin: 0 auto;
 }
 
+.arrow {
+  text-align: center;
+  color: var(--bg);
+  font-size: 2rem;
+  font-weight: 900;
+  background-color: var(--pink);
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.image {
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--pink);
+  margin: 0 auto;
+  width: clamp(370px, 100%, 1200px);
+  box-shadow: none;
+}
+
+/* box IS CREATED BY JQUERY */
 .box {
-  width: 300px;
-  height: 300px;
+  position: relative;
   overflow: hidden;
-  object-fit: cover;
   mix-blend-mode: multiply;
-  border-radius: 10px;
+  border-radius: 60px;
+  box-shadow: none;
 }
 
 .img {
-  display: flex;
-  justify-content: center;
   padding-top: 10px;
-  height: 300px;
   background-color: var(--pink);
-  border-radius: 10px;
+  border-radius: 50px;
+}
+
+@media only screen and (max-width: 415px) {
+  header {
+    width: 90%;
+    /* margin-top: 10rem; */
+  }
+
+  .icon {
+    margin-top: -1rem;
+  }
+
+  .image {
+    width: 90%;
+  }
 }

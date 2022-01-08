@@ -20,7 +20,12 @@ git.MUSIC is an app that allows users to search for a musician or band and find 
 # Usage
 # Future Development 
 - Hide API keys
-- Light / Dark mode - **Feature added 12/12/21**
+- Light / Dark mode - **Added 12/12/21**
+- Fix search button - **Fixed 1/8/22**
+- Page animations - **Added 1/8/22**
+- Mobile friendly - **Fixed 1/8/22**
+- Full page image on click - **Added 1/8/22**
+
 # Contributors
 - @MelElson
 - @RLacer

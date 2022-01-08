@@ -22,9 +22,7 @@ function modeSwitch() {
   isLight = !isLight;
   let root = document.body;
 
-  isLight
-    ? (toggle.innerText = "Light Mode")
-    : (toggle.innerText = "Dark Mode");
+  isLight ? (toggle.innerText = "Light") : (toggle.innerText = "Dark");
 
   root.classList.toggle("light-mode");
 }
@@ -110,72 +108,117 @@ function discAPI() {
       return response.json();
     })
     .then(function (data) {
-      // gets pic from array
+      // GETS IMAGE ON INITIAL SEARCH
       var pic = data.results[0].cover_image;
+      // CREATES VAR OF HTML + pic
       var img = $('<img class="box" src=' + pic + ">", {});
-      // var picTwo = data.results[1].cover_image;
-      // var imgTwo = $('<img class="box" src=' + picTwo + ">", {});
       console.log(data);
-      // adds image from discogs to the page
+      // APPENDS img VAR TO id="img"
       $("#img").append(img);
-
+      // SETS ARTIST NAME IN LOCAL STORAGE
       https: localStorage.setItem("artStore", artist);
-      // Retrieve
+      https: localStorage.setItem("image", pic);
+      // RETRIEVES ARTIST NAME FROM LOCAL STORAGE
       var item = localStorage.getItem("artStore");
-      console.log(item);
-
+      // NEED TO CONSOLIDATE / MAKE IT DRIER //
+      // INCREMENT DECREMENT INDEX TO CHANGE PICTURE
       var value = 0;
-      $("#img").click(function () {
+      $(".plus").click(function () {
         value++;
-        console.log(value);
-        var picTwo = data.results[value].cover_image;
-        var imgTwo = $('<img class="box" src=' + picTwo + ">", {});
+        const picURL = data.results[value].cover_image;
+        const imgTwo = $('<img class="box" src=' + picURL + ">", {});
         $("#img").html("");
         $("#img").append(imgTwo);
+        // SETS CURRENT IMAGE TO LOCAL STORAGE WHEN ARROW BUTTON CLICKED
+        https: localStorage.setItem("image", picURL);
+      });
+
+      $(".minus").click(function () {
+        // PREVENT < 0 INTEGER
+        if (value > 0) {
+          value--;
+        }
+        const picURL = data.results[value].cover_image;
+        const imgTwo = $('<img class="box" src=' + picURL + ">", {});
+        $("#img").html("");
+        $("#img").append(imgTwo);
+        // SETS CURRENT IMAGE TO LOCAL STORAGE WHEN ARROW BUTTON CLICKED
+        https: localStorage.setItem("image", picURL);
       });
     });
   $("#list-group").show();
 }
 
-setStore();
-
+// RETREIVES IMAGE FROM LOCAL STORAGE / OPEN IMAGE IN NEW TAB ON CLICK
+$("#img").click(function () {
+  var pic = localStorage.getItem("image");
+  window.open(pic);
+});
+// RETRIEVES ARTIST FROM LOCAL STORAGE / APPENDS id="list-group"
 function setStore() {
   var item = localStorage.getItem("artStore");
   console.log(item);
   $("#list-group").append(item);
 }
 
-// removes previous searches image
+// COULD I DO ALL THIS BELOW WITH ADDING & REMOVING CLASSES??? //
+// REMOVES IMAGE BEFORE NEXT IMAGE IS LOADED
 function removeImage() {
   $("#img").html("");
-  $("#imgTwo").html("");
 }
 
-function showMore() {
-  $("#more").show();
+// SHOWS ELEMENTS ON SEARCH
+function showItems() {
+  $("#player-container").show(800);
+  $(".arrows").show(800);
 }
 
-function showPlayer() {
-  $("#player-container").show();
-}
-
-function hidePlayer() {
+// HIDES ELEMENTS ON PAGE LOAD
+function hideItems() {
   $("#player-container").hide();
+  $(".arrows").hide();
+  $(".icon").hide();
+}
+hideItems();
+// HIDES SEARCH INPUT, BUTTON, LAST ON SEARCH
+function hideSearch() {
+  $(".field").hide(800);
+}
+// SHOWS SEARCH ICON
+function showSearchIcon() {
+  $(".icon").show(800);
+}
+function hideSearchIcon() {
+  $(".icon").hide(800);
 }
 
-hidePlayer();
-// event listeners
-searchButton.addEventListener("click", getAPI);
-searchButton.addEventListener("click", discAPI);
+$(".icon").click(function () {
+  $(".icon").hide(800);
+  $(".field").show(800);
+});
 
+function search() {
+  getAPI();
+  discAPI();
+  removeImage();
+  showItems();
+  hideSearch();
+  showSearchIcon();
+}
+
+// event listener allows enter key to trigger APIs, clear search field, clear image
+$(".btn").click(function () {
+  search();
+});
 // event listener allows enter key to trigger APIs, clear search field, clear image
 $(".input").on("keypress", function (e) {
   if (e.which == 13) {
-    console.log("enter key pressed");
     getAPI();
     discAPI();
     removeImage();
-    showPlayer();
+    showItems();
+    hideSearch();
+    showSearchIcon();
   }
 });
 
